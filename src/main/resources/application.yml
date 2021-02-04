@@ -1,0 +1,17 @@
+spring:
+  jackson:
+    visibility:
+      field: any
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: bunny
+    password: bunny
+  cloud:
+    stream:
+      bindings:
+        cardEventProcessor-in-0:
+          destination: cardevents
+          group: CardEventProcessor
+        cardEventProcessor-out-0:
+          destination: cardevents

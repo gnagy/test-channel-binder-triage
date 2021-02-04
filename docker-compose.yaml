@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  rabbitmq:
+    image: 'rabbitmq:3-management'
+    container_name: rabbitmq
+    volumes:
+#      - ./data/rabbitmq/etc/:/etc/rabbitmq/
+      - ./data/rabbitmq/data/:/var/lib/rabbitmq/
+      - ./data/rabbitmq/logs/:/var/log/rabbitmq/
+    environment:
+      RABBITMQ_ERLANG_COOKIE: 4ECFA64A-0DDB-4AF9-9556-F6C08F6C2496
+      RABBITMQ_DEFAULT_USER: bunny
+      RABBITMQ_DEFAULT_PASS: bunny
+    ports:
+      - 5672:5672
+      - 15672:15672
